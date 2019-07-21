@@ -23,6 +23,8 @@ module.exports = {
   rules: {
     // allow async-await
     'generator-star-spacing': 'off',
+    //关闭缩进
+    'indent': [0, 4],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
