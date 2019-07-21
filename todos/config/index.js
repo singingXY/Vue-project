@@ -9,8 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    //不使用根目录
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
@@ -51,7 +50,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    //不使用根目录
+    assetsPublicPath: './',
 
     /**
      * Source Maps
