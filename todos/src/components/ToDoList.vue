@@ -9,7 +9,7 @@
             <li
                 v-for="item in items"
                 :key="item.id">
-                <!-- 待办 -->{{item.id}}
+                <!-- 待办 -->
                 <span v-text="item.title"></span>
                 <!-- 完成btn -->
                 <button v-on:click="toggleFinish(item.id)">完成</button>
