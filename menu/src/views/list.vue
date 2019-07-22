@@ -25,19 +25,46 @@
 </template>
 
 <script>
+    import axios from 'axios'
+    import common from '../common.js'
     export default {
         data() {
             return{
-                fruitList:[]
+                list: [],
+                types: [],
+                tab: "",
+                page: 1,
+                prev: 0,
+                next: 0
             }
         },
         mounted() {
-            let temp = {
-                name:"苹果",
-                price:90,
-                unit:"斤"
-            }
-            this.fruitList.push(temp);
+            // 设置默认页数
+            this.page = parseInt(this.$route.query.page) || 1;
+            // 设置默认分类
+            this.tab = this.$route.query.tab;
+            // 请求数据
+            //this.getData();
+            // 设置默认头部分类
+            this.types = [{
+                text: "全部",
+                value: ""
+            }, {
+                text: "精华",
+                value: "good"
+            }, {
+                text: "分享",
+                value: "share"
+            }, {
+                text: "招聘",
+                value: "job"
+            }, {
+                text: "回答",
+                value: "ask"
+            }];
+        },
+        methods(){
+            common.ajaxGet(common.api,{})
         }
     }
 </script>
