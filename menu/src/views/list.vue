@@ -1,11 +1,26 @@
 <template>
-    <div>
-        <ul v-for="fruit in fruitList">
+    <div class="main">
+        <div class="list-type">
+            <ul>
+                <li>全部</li>
+                <li>精华</li>
+                <li>分享</li>
+                <li>问答</li>
+                <li>招聘</li>
+            </ul>
+        </div>
+        <ul class="list">
             <li>
-                <div class="name">{{fruit.name}}</div>
-                <div class="price">{{fruit.price}}</div>
+                <img class="avatar" src="https://avatars2.githubusercontent.com/u/227713?v=4&s=120" alt="">
+                
+                <p><span class="type">问答</span></p>
+                <p class="title">Node 12 值得关注的新特性</p>
             </li>
         </ul>
+        <div class="load-more">
+            <span class="prev" @click="prev" v-show="page != 1">上一页</span>
+            <span class="next" @click="next">下一页</span>
+        </div>
     </div>
 </template>
 
@@ -26,3 +41,6 @@
         }
     }
 </script>
+<style lang="less">
+@import "../assets/less/list";
+</style>
