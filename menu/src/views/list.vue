@@ -2,19 +2,17 @@
     <div class="main">
         <div class="list-type">
             <ul>
-                <li>全部</li>
-                <li>精华</li>
-                <li>分享</li>
-                <li>问答</li>
-                <li>招聘</li>
+                <li v-for="type in types" :key="type.value">{{type.text}}</li>
             </ul>
         </div>
         <ul class="list">
-            <li>
-                <img class="avatar" src="https://avatars2.githubusercontent.com/u/227713?v=4&s=120" alt="">
-                
-                <p><span class="type">问答</span></p>
-                <p class="title">Node 12 值得关注的新特性</p>
+            <li v-for="list in list" :key="list.id">
+                <img class="avatar" :src="list.author.avatar_url" alt="">
+                <p>
+                    <span class="type" v-if="list.tab">{{list.tab | getType}}</span>
+                    <span class="type typetop" v-if="list.top">置顶</span>
+                    </p>
+                <p class="title">{{list.title}}</p>
             </li>
         </ul>
         <div class="load-more">
@@ -58,21 +56,46 @@
                 text: "招聘",
                 value: "job"
             }, {
-                text: "回答",
+                text: "问答",
                 value: "ask"
             }];
         },
         methods: {
             getData() {
-                // common.ajaxGet(common.api + '/topics',{})
-                // .then(res=>{
-                //     console.log(res+"333");
-                // })
-                // console.log(common.response.data);
-                this.$fetch(common.api + '/topics',{})
-                .then((response) => {
-                    console.log(response)
+                this.$fetch(common.api + '/topics',{
+                    page: this.page, // 页数
+                    tab: this.tab // 分类
                 })
+                .then((response) => {
+                    console.log(response);
+                    if(response.success){
+                        // 填充数据
+                        this.list = response.data;
+                    }
+                })
+            }
+        },
+        filters: {
+            getType(value) {
+                let result = value;
+                switch (value) {
+                    case "job":
+                        result = "招聘";
+                        break;
+                    case "good":
+                        result = "精华";
+                        break;
+                    case "share":
+                        result = "分享";
+                        break;
+                    case "ask":
+                        result = "问答";
+                        break;
+                    default:
+                        result = "全部"
+                        break;
+                }
+                return result;
             }
         }
     }
