@@ -25,7 +25,6 @@
 </template>
 
 <script>
-    import axios from 'axios'
     import common from '../common.js'
     export default {
         data() {
@@ -44,7 +43,7 @@
             // 设置默认分类
             this.tab = this.$route.query.tab;
             // 请求数据
-            //this.getData();
+            this.getData();
             // 设置默认头部分类
             this.types = [{
                 text: "全部",
@@ -63,8 +62,18 @@
                 value: "ask"
             }];
         },
-        methods(){
-            common.ajaxGet(common.api,{})
+        methods: {
+            getData() {
+                // common.ajaxGet(common.api + '/topics',{})
+                // .then(res=>{
+                //     console.log(res+"333");
+                // })
+                // console.log(common.response.data);
+                this.$fetch(common.api + '/topics',{})
+                .then((response) => {
+                    console.log(response)
+                })
+            }
         }
     }
 </script>

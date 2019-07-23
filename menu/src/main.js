@@ -2,12 +2,13 @@
 //vue/dist/vue.js
 import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
-//import routes from './routers'
 import List from './views/list'
+
+import {fetch} from './common.js'
+Vue.prototype.$fetch=fetch;
 
 //安装插件
 Vue.use(VueRouter);//挂载属性
-
 const routes = [{
   path: '/src/views/list',
   name: 'list',
