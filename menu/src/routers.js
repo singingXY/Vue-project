@@ -1,19 +1,23 @@
-import List from './views/list'
+import Vue from 'vue/dist/vue.js'
+import VueRouter from 'vue-router'
+import Index from './App'
 
 
-// const List = () => {
-//     require.ensure(['./views/list.vue']), () => {
-//         require('./views/list.vue')
-//     }
-// };
+//安装插件
+Vue.use(VueRouter);//挂载属性
 
-const routers = [{
-    path: '/list',
-    name: 'list',
-    component: List
-},{
+const routes = [{
+    path: '/',
+    name: 'index',
+    component: Index
+  },{
     path: '*',
-    component:List
-}];
-
-export default routers;
+    component:Index
+  }];
+  
+  
+  // 3. 创建 router 实例，然后传 `routes` 配置
+  export default new VueRouter({
+    mode: 'history',
+    routes // (缩写) 相当于 routes: routes
+  })

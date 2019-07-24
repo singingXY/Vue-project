@@ -10,13 +10,31 @@ body{
 .main{
     margin: 5px;
 }
-.list-type{
+.head{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background: #444;
+    z-index: 10;
+    .logo{
+        width: 120px;
+        height: 34px;
+        margin: 0 auto;
+        padding: 3px 20px;
+        line-height: 34px;
+        color: #ccc;
+        font-weight: 700;
+    }
+}
+.list-type{
+    position: fixed;
+    top: 34px;
+    left: 0;
+    width: 100%;
     padding: 5px ;
     background: #e1e1e1;
+    z-index: 10;
     ul{
         display: flex;
         justify-content: center;
@@ -29,12 +47,34 @@ body{
         flex: 1;
         color: @mainColor;
     }
+    li::before, li::after {
+        display: inline-block;
+        opacity: 0;
+        transition: transform .3s, opacity .2s;
+    }
+    li::before {
+        margin-right: 5px;
+        content:'[';
+        transform: translateX(20px);
+    }
+    li::after {
+        margin-left: 5px;
+        content:']';
+        transform: translateX(-20px);
+    }
+    li.active::before, li.active::after{
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+    }
 }
 .list{
     overflow: hidden;
-    margin-top: 45px;
+    margin-top: 80px;
     border-radius: @radius;
     li{
+        position: relative;
         overflow: hidden;
         width: 100%;
         padding: 10px;
@@ -51,7 +91,7 @@ body{
     }
     .type{
         display: inline-block;
-        padding: 2px 4px;
+        padding: 1px 4px;
         border-radius: 3px;
         background-color: #e5e5e5;
         color: #999;
@@ -70,6 +110,16 @@ body{
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+    .count{
+        position: absolute;
+        top: 20%;
+        right: 3%;
+        font-size: 10px;
+        color: #b4b4b4;
+        span{
+            color: @mainColor;
+        }
     }
 }
 .load-more{

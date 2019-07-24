@@ -2,17 +2,18 @@
     <div class="main">
         <div class="list-type">
             <ul>
-                <li v-for="type in types" @click="onTabSelect(type.value)" :key="type.value">{{type.text}}</li>
+                <li :class="{'active':tab===type.value}" v-for="type in types" @click="onTabSelect(type.value)" :key="type.value">{{type.text}}</li>
             </ul>
         </div>
         <ul class="list">
             <li v-for="list in list" :key="list.id">
-                <img class="avatar" :src="list.author.avatar_url" alt="">
+                <img class="avatar" :src="list.author.avatar_url" :alt="list.author.loginname">
                 <p>
                     <span class="type" :class="{'typegood': list.good}" v-if="list.tab">{{list.tab | getType}}</span>
                     <span class="type typetop" v-if="list.top">置顶</span>
                     </p>
                 <p class="title">{{list.title}}</p>
+                <p class="count"><span>{{list.reply_count}}</span>/{{list.visit_count}}</p>
             </li>
         </ul>
         <div class="load-more">
@@ -128,6 +129,7 @@
             }
         },
         filters: {
+            //把type返回为中文
             getType(value) {
                 let result = value;
                 switch (value) {
