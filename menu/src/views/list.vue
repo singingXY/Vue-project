@@ -14,6 +14,7 @@
                     </p>
                 <p class="title">{{list.title}}</p>
                 <p class="count"><span>{{list.reply_count}}</span>/{{list.visit_count}}</p>
+                <p class="date"> {{changeTime(list.last_reply_at)}}</p>
             </li>
         </ul>
         <div class="load-more">
