@@ -2,14 +2,14 @@
     <div class="main">
         <div class="list-type">
             <ul>
-                <li v-for="type in types" :key="type.value">{{type.text}}</li>
+                <li v-for="type in types" @click="onTabSelect(type.value)" :key="type.value">{{type.text}}</li>
             </ul>
         </div>
         <ul class="list">
             <li v-for="list in list" :key="list.id">
                 <img class="avatar" :src="list.author.avatar_url" alt="">
                 <p>
-                    <span class="type" v-if="list.tab">{{list.tab | getType}}</span>
+                    <span class="type" :class="{'typegood': list.good}" v-if="list.tab">{{list.tab | getType}}</span>
                     <span class="type typetop" v-if="list.top">置顶</span>
                     </p>
                 <p class="title">{{list.title}}</p>
@@ -30,9 +30,7 @@
                 list: [],
                 types: [],
                 tab: "",
-                page: 1,
-                prev: 0,
-                next: 0
+                page: 1
             }
         },
         mounted() {
@@ -73,6 +71,60 @@
                         this.list = response.data;
                     }
                 })
+            },
+            prev() {
+                this.page--;
+                //改变路由
+                let query = {
+                    page: this.page
+                }
+                if (this.tab) {
+                    query.tab = this.tab;
+                }
+                this.$router.push({
+                    path: 'list',
+                    query: query
+                })
+            },
+            next() {
+                this.page++;
+                //改变路由
+                let query = {
+                    page: this.page
+                }
+
+                if (this.tab) {
+                    query.tab = this.tab;
+                }
+                this.$router.push({
+                    path: 'list',
+                    query: query
+                })
+            },
+            onTabSelect(type){
+                this.tab = type;
+                this.page = 1;
+                //改变路由
+                let query = {
+                    page: this.page
+                }
+                if (this.tab) {
+                    query.tab = this.tab;
+                }
+                this.$router.push({
+                    path: 'list',
+                    query: query
+                })
+            }
+        },
+        watch: {
+            $route(){
+                //检测路由变化
+                this.page = this.$route.query.page || 1;
+                this.tab = this.$route.query.tab;
+
+                //获取数据
+                this.getData();
             }
         },
         filters: {
