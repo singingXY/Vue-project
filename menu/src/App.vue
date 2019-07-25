@@ -1,17 +1,16 @@
 <template>
     <div id="app">
         <VHeader></VHeader>
-        <Vlist></Vlist>
+        <router-view></router-view>
     </div>
 </template>
 <script>
 import VHeader from './components/header.vue';
-import Vlist from './views/list.vue';
 
 export default {
+    name: 'app',
     components: {
-        VHeader,
-        Vlist
+        VHeader
     }
 }
 </script>

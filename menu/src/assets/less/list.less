@@ -8,7 +8,8 @@ body{
 }
 
 .main{
-    margin: 5px;
+    overflow: hidden;
+    margin:40px 5px 0;
 }
 .head{
     position: fixed;
@@ -71,7 +72,7 @@ body{
 }
 .list{
     overflow: hidden;
-    margin-top: 80px;
+    margin-top: 40px;
     border-radius: @radius;
     li{
         position: relative;
@@ -110,6 +111,12 @@ body{
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        a{
+            color: #333;
+            &:visited{
+                color: #888;
+            }
+        }
     }
     .count{
         position: absolute;

@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
-import Index from './App'
-
+const Article = () => import('./views/article.vue')
+import Index from './views/list.vue';
 
 //安装插件
 Vue.use(VueRouter);//挂载属性
@@ -10,6 +10,10 @@ const routes = [{
     path: '/',
     name: 'index',
     component: Index
+  },{
+    path: '/:id',
+    name: 'article',
+    component: Article
   },{
     path: '*',
     component:Index

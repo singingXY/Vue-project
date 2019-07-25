@@ -12,7 +12,9 @@
                     <span class="type" :class="{'typegood': list.good}" v-if="list.tab">{{list.tab | getType}}</span>
                     <span class="type typetop" v-if="list.top">置顶</span>
                     </p>
-                <p class="title">{{list.title}}</p>
+                <p class="title">
+                    <router-link :to="{ name: 'article', params:{ id: list.id }}">{{list.title}}</router-link>
+                </p>
                 <p class="count"><span>{{list.reply_count}}</span>/{{list.visit_count}}</p>
                 <p class="date"> {{changeTime(list.last_reply_at)}}</p>
             </li>
@@ -27,6 +29,7 @@
 <script>
     import common from '../common.js'
     export default {
+        name: 'index',
         data() {
             return{
                 list: [],
