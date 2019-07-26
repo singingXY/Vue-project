@@ -28,6 +28,7 @@ axios.interceptors.response.use(
     }
   )
 
+
 export function fetch(url,params={}){
     return new Promise((resolve,reject) => {
       axios.get(url,{
@@ -41,6 +42,7 @@ export function fetch(url,params={}){
       })
     })
   }
+
 
 
 export default common;
