@@ -4,7 +4,7 @@
             <h1>{{infos.title}}</h1>
             <p>
                 <span>发布于 {{changeTime(infos.create_at)}}</span>
-                <span>作者 {{infos.author.loginname}}</span>
+                <span v-if="infos.author">作者 {{infos.author.loginname}}</span>
                 <span>{{infos.visit_count}}次浏览</span>
                 <span>来自 {{infos.tab}}</span>
             </p>
@@ -13,7 +13,7 @@
             
         </div>
         <transition name="slide-left">
-            <div class="back" @click.stop.prevent="$router.go(-1)"><</div>
+            <div class="back" @click.stop.prevent="$router.go(-1)">《</div>
         </transition>
     </div>
 </template>
@@ -39,7 +39,6 @@ export default {
                 if(response.success){
                     // 填充数据
                     this.infos = response.data;
-            console.log(this.infos.author.loginname);
                 }
             })
         }
