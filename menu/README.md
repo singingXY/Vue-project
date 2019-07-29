@@ -1,3 +1,5 @@
+https://singingxy.github.io/Vue-project/menu/dist/index.html
+
 # menu
 
 > A Vue.js project
