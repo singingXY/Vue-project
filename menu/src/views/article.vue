@@ -41,6 +41,7 @@ export default {
     name: 'articleDetail',
     data() {
         return {
+            isLoading:true,
             id: this.$route.params.id,
             types: { share: '分享', ask: '问答', job: '招聘'},
             infos: [],
@@ -55,6 +56,7 @@ export default {
             this.$fetch(common.api + '/topic/' + this.id )
         
             .then((response) => {
+                this.isLoading =false;
                 if(response.success){
                     // 填充数据
                     this.infos = response.data;

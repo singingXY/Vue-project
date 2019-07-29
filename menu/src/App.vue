@@ -1,9 +1,21 @@
 <template>
+    
     <div id="app" >
+        <!-- <div id="Loading" v-show="Loading">
+            <div id="loadindex">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
+                <p>正在载入...</p>
+            </div>
+        </div> -->
+        <transition name="fade">
+            <loading v-if="Load"></loading>
+        </transition>
         <VHeader></VHeader>
-        <div @scroll="scroll($event)">
-        <router-view></router-view>
+        <div class="loading">
+            <!-- <i v-show="isLoading" class="icon-loading"></i> -->
         </div>
+        <router-view></router-view>
         <transition name="slide-fade">
             <div class="backtotop" v-show="isScrollTop">
                 <i @click = "scrollToTop">
@@ -14,15 +26,18 @@
     </div>
 </template>
 <script>
-import VHeader from './components/header.vue';
-
+import VHeader from '@/components/header.vue';
+import Loading from '@/components/loading.vue';
 export default {
     name: 'app',
     components: {
-        VHeader
+        VHeader,
+        Loading
     },
     data() {
         return {
+            
+            Load: true,
             // 定义滚动条默认位置
             scrollTop: null,
 
@@ -48,6 +63,8 @@ export default {
             this.isScrollTop = false;
         }
         }, true);
+        
+        this.Load = false;
     },
     methods: {
         scrollToTop() {
