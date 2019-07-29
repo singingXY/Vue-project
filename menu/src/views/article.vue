@@ -1,5 +1,10 @@
 <template>
+    
     <div class="main article">
+        
+        <transition name="fade">
+            <loading v-if="isLoading"></loading>
+        </transition>
         <div class="article-title">
             <h1>{{infos.title}}</h1>
             <p>
@@ -37,11 +42,15 @@
 </template>
 <script>
 import common from '../common.js'
+import Loading from '@/components/loading.vue';
 export default {
     name: 'articleDetail',
+    components: {
+        Loading
+    },
     data() {
         return {
-            isLoading:true,
+            isLoading: true,
             id: this.$route.params.id,
             types: { share: '分享', ask: '问答', job: '招聘'},
             infos: [],
@@ -56,7 +65,7 @@ export default {
             this.$fetch(common.api + '/topic/' + this.id )
         
             .then((response) => {
-                this.isLoading =false;
+                this.isLoading = false;
                 if(response.success){
                     // 填充数据
                     this.infos = response.data;

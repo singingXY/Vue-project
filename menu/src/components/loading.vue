@@ -1,11 +1,11 @@
 <template>
-    <div id="Loading">
-        <div id="loadindex">
-            <div class="cube1"></div>
-            <div class="cube2"></div>
-            <p>正在载入...</p>
+        <div class="loading">
+            <div class="three-bounce">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -15,60 +15,39 @@ export default {
 </script>
 
 <style scoped>
-#Loading {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: #7d7d7de3;
-    z-index:100;
-    }
-#loadindex{
-    position: absolute;
-    top:50%;
-    left:50%;
-    width: 80px;
-    height: 80px;
-    transform: translateY(-50%) translateX(-50%);
+.loading{
+    display: flex;
+    justify-content: center;
 }
-#loadindex p{
-        position: absolute;
-        top:75px;
-        left:0;
-        color: #fff;
-    }
-.cube1, .cube2 {
-    width:16px;
-    height:16px;
-    background-color:#fff;
-    position:absolute;
+.three-bounce {
+    display: inline-block;
+    text-align:center;
+    position:relative;
     top:0;
-    left:0;
-    animation:cubemove 1.8s infinite ease-in-out
+    width:80px;
 }
-.cube2 {
-    animation-delay:-0.9s
-}
-@keyframes cubemove {
-    25% {
-        transform:translateX(42px) rotate(-90deg) scale(0.5);
-        -webkit-transform:translateX(42px) rotate(-90deg) scale(0.5)
+.three-bounce>div {
+        display:inline-block;
+        width:12px;
+        height:12px;
+        border-radius:100%;
+        background-color:#666;
+        animation:bouncedelay 1.4s infinite ease-in-out both;
+        }
+.three-bounce .one {
+        animation-delay:-0.32s
     }
-    50% {
-        transform:translateX(42px) translateY(42px) rotate(-179deg);
-        -webkit-transform:translateX(42px) translateY(42px) rotate(-179deg)
+.three-bounce .two {
+        animation-delay:-0.16s
     }
-    50.1% {
-        transform:translateX(42px) translateY(42px) rotate(-180deg);
-        -webkit-transform:translateX(42px) translateY(42px) rotate(-180deg)
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform:scale(0);
+        transform:scale(0)
     }
-    75% {
-        transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-        -webkit-transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
-    }
-    100% {
-        transform:rotate(-360deg);
-        -webkit-transform:rotate(-360deg)
+    40% {
+        transform:scale(1);
+        -webkit-transform:scale(1)
     }
 }
 </style>

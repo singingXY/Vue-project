@@ -11,7 +11,7 @@ const routes = [{
     name: 'index',
     component: Index
   },{
-    path: '/:id',
+    path: '/topic/:id',
     name: 'article',
     component: Article
   },{

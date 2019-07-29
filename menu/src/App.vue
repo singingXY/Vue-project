@@ -1,20 +1,8 @@
 <template>
     
     <div id="app" >
-        <!-- <div id="Loading" v-show="Loading">
-            <div id="loadindex">
-                <div class="cube1"></div>
-                <div class="cube2"></div>
-                <p>正在载入...</p>
-            </div>
-        </div> -->
-        <transition name="fade">
-            <loading v-if="Load"></loading>
-        </transition>
+            
         <VHeader></VHeader>
-        <div class="loading">
-            <!-- <i v-show="isLoading" class="icon-loading"></i> -->
-        </div>
         <router-view></router-view>
         <transition name="slide-fade">
             <div class="backtotop" v-show="isScrollTop">
@@ -27,17 +15,13 @@
 </template>
 <script>
 import VHeader from '@/components/header.vue';
-import Loading from '@/components/loading.vue';
 export default {
     name: 'app',
     components: {
-        VHeader,
-        Loading
+        VHeader
     },
     data() {
         return {
-            
-            Load: true,
             // 定义滚动条默认位置
             scrollTop: null,
 
@@ -63,8 +47,14 @@ export default {
             this.isScrollTop = false;
         }
         }, true);
-        
-        this.Load = false;
+        //载入后移除全屏加载
+        try {
+            document.body.removeChild(document.getElementById('Loading'));
+            setTimeout(function() {
+            document.getElementById('app').style.display = 'block';
+            }, 500);
+        } catch (e) {
+        }
     },
     methods: {
         scrollToTop() {
@@ -74,31 +64,32 @@ export default {
             // 返回顶部动画特效
             setTimeout(function animation() {
                 if ($this.scrollTop > 0) {
-                setTimeout(() => {
+                    setTimeout(() => {
 
-                    // 步进速度
-                    $this.scrollTop = $this.scrollTop - 30;
+                        // 步进速度
+                        $this.scrollTop = $this.scrollTop - 30;
 
-                    // 返回顶部
-                    if(document.documentElement.scrollTop > 0) {
-                    document.documentElement.scrollTop = $this.scrollTop - 30;
-                    } else if (window.pageYOffset > 0) {
-                    window.pageYOffset = $this.scrollTop - 30;
-                    } else if (document.body.scrollTop > 0) {
-                    document.body.scrollTop = $this.scrollTop - 30;
-                    } else if (document.querySelector($this.el).scrollTop) {
-                    document.querySelector($this.el).scrollTop = $this.scrollTop - 30;
-                    }
-
-                    animation();
-                }, 1);
+                        // 返回顶部
+                        if(document.documentElement.scrollTop > 0) {
+                            document.documentElement.scrollTop = $this.scrollTop - 30;
+                        } else if (window.pageYOffset > 0) {
+                            window.pageYOffset = $this.scrollTop - 30;
+                        } else if (document.body.scrollTop > 0) {
+                            document.body.scrollTop = $this.scrollTop - 30;
+                        } else if (document.querySelector($this.el).scrollTop) {
+                            document.querySelector($this.el).scrollTop = $this.scrollTop - 30;
+                        }
+                        animation();
+                    }, 1);
                 }
             }, 1);
-            
         }
     }
 }
 </script>
 <style lang="less">
     @import "../src/assets/less/list";
+    .loading{
+        margin-top: 80px;
+    }
 </style>

@@ -5,6 +5,10 @@
                 <li :class="{'active':tab===type.value}" v-for="type in types" @click="onTabSelect(type.value)" :key="type.value">{{type.text}}</li>
             </ul>
         </div>
+        
+        <transition name="fade">
+            <loading v-if="isLoading"></loading>
+        </transition>
         <ul class="list">
             <li v-for="list in list" :key="list.id">
                 <img class="avatar" :src="list.author.avatar_url" :alt="list.author.loginname">
@@ -19,7 +23,7 @@
                 <p class="date"> {{changeTime(list.last_reply_at)}}</p>
             </li>
         </ul>
-        <div class="load-more">
+        <div class="load-more" v-if="isLoading == false">
             <span class="prev" @click="prev" v-show="page != 1">上一页</span>
             <span class="next" @click="next">下一页</span>
         </div>
@@ -28,10 +32,15 @@
 
 <script>
     import common from '../common.js'
+    import Loading from '@/components/loading.vue';
     export default {
         name: 'index',
+        components: {
+            Loading
+        },
         data() {
             return{
+                isLoading: true,
                 list: [],
                 types: [],
                 tab: "",
@@ -65,12 +74,14 @@
         },
         methods: {
             getData() {
+                this.isLoading = true;
                 this.$fetch(common.api + '/topics',{
                     page: this.page, // 页数
                     tab: this.tab // 分类
                 })
                 .then((response) => {
                     console.log(response);
+                    this.isLoading = false;
                     if(response.success){
                         // 填充数据
                         this.list = response.data;
