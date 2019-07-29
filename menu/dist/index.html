@@ -1,1 +1,56 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>menu</title><link href=./static/css/app.b297fc449192c6de63ed6ae5f18810e6.css rel=stylesheet></head><body><div id=app><router-view></router-view></div><script type=text/javascript src=./static/js/manifest.e3aaee03624f6cdde3d8.js></script><script type=text/javascript src=./static/js/vendor.c06a083218cf53b1bad9.js></script><script type=text/javascript src=./static/js/app.de0aeedf538d2133400f.js></script></body></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>menu</title><style>#Loading {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: #7d7d7de3;
+            z-index:100;
+            }
+        .loadindex{
+            position: absolute;
+            top:50%;
+            left:50%;
+            width: 80px;
+            height: 80px;
+            transform: translateY(-50%) translateX(-50%);
+        }
+        .loadindex p{
+                position: absolute;
+                top:75px;
+                left:0;
+                color: #fff;
+            }
+        .cube1, .cube2 {
+            width:16px;
+            height:16px;
+            background-color:#fff;
+            position:absolute;
+            top:0;
+            left:0;
+            animation:cubemove 1.8s infinite ease-in-out
+        }
+        .cube2 {
+            animation-delay:-0.9s
+        }
+        @keyframes cubemove {
+            25% {
+                transform:translateX(42px) rotate(-90deg) scale(0.5);
+                -webkit-transform:translateX(42px) rotate(-90deg) scale(0.5)
+            }
+            50% {
+                transform:translateX(42px) translateY(42px) rotate(-179deg);
+                -webkit-transform:translateX(42px) translateY(42px) rotate(-179deg)
+            }
+            50.1% {
+                transform:translateX(42px) translateY(42px) rotate(-180deg);
+                -webkit-transform:translateX(42px) translateY(42px) rotate(-180deg)
+            }
+            75% {
+                transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+                -webkit-transform:translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
+            }
+            100% {
+                transform:rotate(-360deg);
+                -webkit-transform:rotate(-360deg)
+            }
+        }</style><link href=./static/css/app.c09feccf65b9af5272350b61ea1d4d81.css rel=stylesheet></head><body><div id=Loading><div class=loadindex><div class=cube1></div><div class=cube2></div><p>正在载入...</p></div></div><div id=app><router-view></router-view></div><script type=text/javascript src=./static/js/manifest.16a0309373edf1d6e683.js></script><script type=text/javascript src=./static/js/vendor.c06a083218cf53b1bad9.js></script><script type=text/javascript src=./static/js/app.dfd3a8517860c8886c73.js></script></body></html>
