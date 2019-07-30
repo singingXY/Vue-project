@@ -90,6 +90,6 @@ export default {
 <style lang="less">
     @import "../src/assets/less/list";
     .loading{
-        margin-top: 80px;
+        margin-top:20px;
     }
 </style>

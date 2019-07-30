@@ -1,6 +1,7 @@
 import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
 const Article = () => import('./views/article.vue')
+const User = () => import('./views/user.vue')
 import Index from './views/list.vue';
 
 //安装插件
@@ -14,6 +15,10 @@ const routes = [{
     path: '/topic/:id',
     name: 'article',
     component: Article
+  },{
+    path: '/user/:loginname',
+    name: 'user',
+    component: User
   },{
     path: '*',
     component:Index

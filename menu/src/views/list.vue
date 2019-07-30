@@ -11,7 +11,9 @@
         </transition>
         <ul class="list">
             <li v-for="list in list" :key="list.id">
-                <img class="avatar" :src="list.author.avatar_url" :alt="list.author.loginname">
+                <router-link :to="{ name: 'user', params: { loginname: list.author.loginname}}">
+                    <img class="avatar" :src="list.author.avatar_url" :alt="list.author.loginname">
+                </router-link>
                 <p>
                     <span class="type" :class="{'typegood': list.good}" v-if="list.tab">{{list.tab | getType}}</span>
                     <span class="type typetop" v-if="list.top">置顶</span>
@@ -171,4 +173,7 @@
 </script>
 <style lang="less">
 @import "../assets/less/list";
+    .loading{
+        margin-top: 80px;
+    }
 </style>
