@@ -5,6 +5,10 @@ import router from './routers.js'
 import moment from 'moment'
 import App from './App'
 import {fetch} from './common.js'
+//vuex
+import store from './store'
+
+
 Vue.prototype.$fetch = fetch;
 Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds','分钟');
 
@@ -13,6 +17,7 @@ Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().repl
 new Vue({
   el: '#app',
   router,
+  store,//使用store
   components: { App },
   template: '<App/>'
 })
