@@ -3,7 +3,9 @@
     <div id="app" >
             
         <VHeader></VHeader>
-        <router-view></router-view>
+        <transition :name="transitionName">
+            <router-view class="Router"></router-view>
+        </transition>
         <transition name="slide-fade">
             <div class="backtotop" v-show="isScrollTop">
                 <i @click = "scrollToTop">
@@ -24,9 +26,10 @@ export default {
         return {
             // 定义滚动条默认位置
             scrollTop: null,
-
             // 定义按钮默认状态
-            isScrollTop: false
+            isScrollTop: false,
+            // 默认动态路由变化为slide-right
+            transitionName: 'slide-right'
         }
     },
     props: {
@@ -84,6 +87,18 @@ export default {
                 }
             }, 1);
         }
+    },
+    watch: {
+        '$route' (to, from) {
+            //  监听路由变化时的状态为前进还是后退
+            let isBack = this.$router.isBack  
+            if(isBack) {
+                this.transitionName = 'slide-right'
+            } else {
+                this.transitionName = 'slide-left'
+            }
+            this.$router.isBack = false
+    　　}
     }
 }
 </script>

@@ -171,9 +171,9 @@
         }
     }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 @import "../assets/less/list";
     .loading{
-        margin-top: 80px;
+        margin-top: 60px;
     }
 </style>

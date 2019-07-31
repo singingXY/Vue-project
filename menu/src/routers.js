@@ -23,7 +23,11 @@ const routes = [{
     path: '*',
     component:Index
   }];
-  
+
+VueRouter.prototype.$goBack = function () { 
+  　　this.isBack = true
+  　　window.history.go(-1)
+  }
   
   // 3. 创建 router 实例，然后传 `routes` 配置
   export default new VueRouter({
