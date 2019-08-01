@@ -143,6 +143,7 @@
 
                 //获取数据
                 this.getData();
+                document.documentElement.scrollTop = 0;
             }
         },
         filters: {
