@@ -90,15 +90,12 @@ export default {
     },
     watch: {
         '$route' (to, from) {
-            //  监听路由变化时的状态为前进还是后退
-            let isBack = this.$router.isBack  
-            if(isBack) {
-                this.transitionName = 'slide-right'
-            } else {
-                this.transitionName = 'slide-left'
+            if(to.name == 'article' || to.name == 'user'){
+                this.transitionName = 'slide-left';
+            }else{
+                this.transitionName = 'slide-right';
             }
-            this.$router.isBack = false
-    　　}
+        }
     }
 }
 </script>

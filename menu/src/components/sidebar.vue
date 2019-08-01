@@ -1,21 +1,28 @@
 <template>
-        <div class="sidebar">
-            <transition name="slidebar">
-                <div class="side-menu">
+        <div class="slidebar">
+            <transition name="slidebar-fade">
+                <div class="slide-menu" v-show="isShowSidebar">
                     <div class="user">
                         .
                     </div>
+                    <ul>
+                        <li>1</li>
+                    </ul>
                 </div>
             </transition>
-            <div class="mask" @click.stop.prevent="showSidebar"></div>
+            <div class="mask" @click.stop.prevent="hideSidebar" v-show="isShowSidebar"></div>
         </div>
 </template>
 
 <script>
 export default {
+    computed:{
+        isShowSidebar() {
+            return this.$store.state.isShowSidebar;
+        }
+    },
     methods: {
-        showSidebar(){
-            //console.log("1:"+this.$store.state.isShowSidebar);
+        hideSidebar(){
             this.$store.commit('showSidebar', false);
         }
     }
@@ -32,7 +39,7 @@ export default {
     height: 100%;
     background: #00000052;
 }
-.side-menu{
+.slide-menu{
     position: fixed;
     top: 36px;
     right: 0;
@@ -46,5 +53,16 @@ export default {
         text-align: center;
         background: #f6f6f6;
     }
+}
+
+.slidebar-fade-enter-active {
+    transition:all .3s linear;
+}
+.slidebar-fade-leave-active {
+    transition:all .3s ease-out;
+}
+.slidebar-fade-enter, .slidebar-fade-leave-active {
+    opacity: 0;
+    transform:translateX(100px);
 }
 </style>
