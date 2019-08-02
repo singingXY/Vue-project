@@ -101,6 +101,7 @@ export default {
             max-height: 120px;
             margin-right: 30px;
             border-radius: 50%;
+            background: #f0f0f0;
         }
         .user-infos{
             width: 70%;
@@ -141,6 +142,7 @@ export default {
             width: 40px;
             height: 40px;
             margin-right: 10px;
+            background: #f0f0f0;
         }
         .title{
             width: 66%;

@@ -82,7 +82,7 @@
                     tab: this.tab // 分类
                 })
                 .then((response) => {
-                    console.log(response);
+                    //console.log(response);
                     this.isLoading = false;
                     if(response.success){
                         // 填充数据
@@ -143,7 +143,7 @@
 
                 //获取数据
                 this.getData();
-                document.documentElement.scrollTop = 0;
+                document.documentElement.scrollTop = 1;
             }
         },
         filters: {

@@ -42,9 +42,9 @@ export default {
                             window.pageYOffset ||
                             document.body.scrollTop ||
                             document.querySelector(this.el).scrollTop;
-
+        console.log(this.scrollTop);
         // 控制滚动按钮的隐藏或显示
-        if (this.scrollTop > 150) {
+        if (this.scrollTop > 200) {
             this.isScrollTop = true;
         } else {
             this.isScrollTop = false;
@@ -66,18 +66,18 @@ export default {
 
             // 返回顶部动画特效
             setTimeout(function animation() {
-                if ($this.scrollTop > 0) {
+                if ($this.scrollTop > 1) {
                     setTimeout(() => {
 
                         // 步进速度
                         $this.scrollTop = $this.scrollTop - 30;
 
                         // 返回顶部
-                        if(document.documentElement.scrollTop > 0) {
+                        if(document.documentElement.scrollTop > 1) {
                             document.documentElement.scrollTop = $this.scrollTop - 30;
-                        } else if (window.pageYOffset > 0) {
+                        } else if (window.pageYOffset > 1) {
                             window.pageYOffset = $this.scrollTop - 30;
-                        } else if (document.body.scrollTop > 0) {
+                        } else if (document.body.scrollTop > 1) {
                             document.body.scrollTop = $this.scrollTop - 30;
                         } else if (document.querySelector($this.el).scrollTop) {
                             document.querySelector($this.el).scrollTop = $this.scrollTop - 30;

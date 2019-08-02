@@ -27,7 +27,7 @@ export default {
             return this.$store.state.isShowSidebar;
         },
         showBack(){
-            if(this.$route.name != '' || this.$route.name != 'index' ){
+            if(this.$route.name != '' && this.$route.name != 'index' ){
                 return this.$route.name;
             }
         }
