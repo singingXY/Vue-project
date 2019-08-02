@@ -1,4 +1,4 @@
-https://singingxy.github.io/Vue-project/menu/dist/index.html
+https://singingxy.github.io/Vue-project/VueCNode/dist/index.html
 
 # menu
 
