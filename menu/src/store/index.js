@@ -4,11 +4,15 @@ Vue.use(vuex);
 
 export default new vuex.Store({
     state:{
-        isShowSidebar:false
+        isShowSidebar: false,
+        isLogin: false
     },
     mutations:{
         showSidebar(state,value){//这里的state对应着上面这个state
             state.isShowSidebar = value ;
+        },
+        Login(state,value){
+            state.isLogin = value ;
         }
     }
 })
