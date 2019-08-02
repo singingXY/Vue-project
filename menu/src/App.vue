@@ -42,7 +42,7 @@ export default {
                             window.pageYOffset ||
                             document.body.scrollTop ||
                             document.querySelector(this.el).scrollTop;
-        console.log(this.scrollTop);
+        
         // 控制滚动按钮的隐藏或显示
         if (this.scrollTop > 200) {
             this.isScrollTop = true;
