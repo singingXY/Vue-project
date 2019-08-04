@@ -63,6 +63,9 @@ export default {
             replies: []
         }
     },
+    created() {
+        this.$store.commit('showSidebar', false);
+    },
     mounted() {
         this.getData();
     },

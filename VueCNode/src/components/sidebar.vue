@@ -10,11 +10,13 @@
                         <input type="text" v-model="accessToken" placeholder="请输入accessToken">
                         <div class="login" @click="dologin">登 录</div>
                     </div>
-                    <div v-if="isLogin">
-                        <div class="avatar">
-                            <img :src="user.avatar_url" alt="">
-                        </div>
-                        <h4>{{user.loginname}}</h4>
+                    <div v-if="isLogin && user.loginname">
+                        <router-link :to="{ name: 'user', params:{ loginname: user.loginname }}">
+                            <div class="avatar">
+                                <img :src="user.avatar_url" :alt="user.loginname">
+                            </div>
+                            <h4>{{user.loginname}}</h4>
+                        </router-link>
                     </div>
                 </div>
                 <ul>
@@ -50,7 +52,6 @@ export default {
         //如果已登录则显示用户信息
         if(this.isLogin){
             this.user = JSON.parse(localStorage.getItem("userInfo"));
-            console.log(this.user);
         }
     },
     methods: {
@@ -63,13 +64,12 @@ export default {
                         accesstoken: this.accessToken
                 })
                 .then((response) => {
-                    console.log(response);
+                    //console.log(response);
                     if(response.success){
                         this.$store.dispatch('isLogin', true);
                         localStorage.setItem("isLogin", "isLogin");
                         localStorage.setItem("userInfo", JSON.stringify(response));
                         this.user = response;
-                        console.log(this.$store);
                     }
                 })
                 .catch((err) => {
@@ -83,7 +83,6 @@ export default {
             this.$store.dispatch('isLogin', false);
             localStorage.removeItem("isLogin");
             localStorage.removeItem("userInfo");
-            console.log(this.$store);
         }
     }
     
