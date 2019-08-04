@@ -46,6 +46,13 @@ export default {
             return this.$store.state.isLogin;
         }
     },
+    mounted () {
+        //如果已登录则显示用户信息
+        if(this.isLogin){
+            this.user = JSON.parse(localStorage.getItem("userInfo"));
+            console.log(this.user);
+        }
+    },
     methods: {
         hideSidebar(){
             this.$store.commit('showSidebar', false);
@@ -58,8 +65,11 @@ export default {
                 .then((response) => {
                     console.log(response);
                     if(response.success){
+                        this.$store.dispatch('isLogin', true);
+                        localStorage.setItem("isLogin", "isLogin");
+                        localStorage.setItem("userInfo", JSON.stringify(response));
                         this.user = response;
-                        this.$store.commit('Login', true);
+                        console.log(this.$store);
                     }
                 })
                 .catch((err) => {
@@ -70,7 +80,10 @@ export default {
             }
         },
         logout(){
-            this.$store.commit('Login', false);
+            this.$store.dispatch('isLogin', false);
+            localStorage.removeItem("isLogin");
+            localStorage.removeItem("userInfo");
+            console.log(this.$store);
         }
     }
     
