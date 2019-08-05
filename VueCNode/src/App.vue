@@ -90,7 +90,7 @@ export default {
     },
     watch: {
         '$route' (to, from) {
-            if(to.name == 'article' || to.name == 'user'){
+            if(to.name == 'article' || to.name == 'user' || to.name == 'collect'){
                 this.transitionName = 'slide-left';
             }else{
                 this.transitionName = 'slide-right';

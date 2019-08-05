@@ -21,7 +21,9 @@
                 </div>
                 <ul>
                     <li v-show="isLogin">我的消息</li>
-                    <li v-show="isLogin">我的收藏</li>
+                    <li v-show="isLogin">
+                        <router-link :to="{ name: 'collect', params:{ loginname: user.loginname }}">我的收藏</router-link>
+                    </li>
                     <li v-show="isLogin" @click="logout">退出登录</li>
                     <li>关 于</li>
                 </ul>
@@ -160,6 +162,9 @@ export default {
             border-radius: 20px;
             &:hover{
                 background: #828282;
+            }
+            a{
+                color: #eee;
             }
         }
     }

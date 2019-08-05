@@ -2,6 +2,7 @@ import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
 const Article = () => import('./views/article.vue')
 const User = () => import('./views/user.vue')
+const Collect = () => import('./views/collect.vue')
 import Index from './views/list.vue';
 
 //安装插件
@@ -19,6 +20,10 @@ const routes = [{
     path: '/user/:loginname',
     name: 'user',
     component: User
+  },{
+    path: '/user/:loginname/collections',
+    name: 'collect',
+    component: Collect
   },{
     path: '*',
     component:Index
