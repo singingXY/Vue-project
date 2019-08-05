@@ -1,7 +1,7 @@
 <template>
     
-    <div class="main article">
-        
+    <div class="main">
+        <div class="article">
         <transition name="fade">
             <loading v-if="isLoading"></loading>
         </transition>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        
+        </div>
     </div>
 </template>
 <script>
@@ -65,6 +65,7 @@ export default {
     },
     mounted() {
         this.getData();
+        document.documentElement.scrollTop = 1;
     },
     methods: {
         getData() {
@@ -76,7 +77,7 @@ export default {
                     // 填充数据
                     this.infos = response.data;
                     this.replies = this.infos.replies;
-                    console.log(this.replies);
+                    //console.log(this.replies);
                 }
             })
         }

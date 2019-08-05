@@ -55,7 +55,7 @@ export default {
             .then((collect) => {
                 this.isLoading = false;
                 this.collect = collect.data;
-                console.log(this.collect);
+                //console.log(this.collect);
             })
         }
     }
@@ -68,7 +68,7 @@ export default {
 }
 .user-list{
     overflow: hidden;
-    margin: 10px 0;
+    margin: 5px 0 10px;
     background: #fff;
     border-radius: 5px;
 }

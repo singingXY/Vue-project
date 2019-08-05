@@ -10,7 +10,8 @@ body{
 
 .main{
     overflow: hidden;
-    margin:5px 5px 10px;
+    margin:0 5px 10px;
+    padding-top: 41px;
 }
 .head{
     position: fixed;
@@ -38,10 +39,11 @@ body{
 }
 .list-type{
     position: fixed;
-    // top: 36px;
+    //top: 41px;
     left: 0;
     width: 100%;
-    padding: 0 5px ;
+    padding: 5px ;
+    margin-top: -5px;
     background: #e1e1e1;
     z-index: 5;
     ul{
@@ -80,7 +82,7 @@ body{
 }
 .list{
     overflow: hidden;
-    margin-top: 38px;
+    margin-top: 41px;
     border-radius: @radius;
     li{
         position: relative;
@@ -193,10 +195,11 @@ body{
 
 
 .Router {
-    position: absolute;
+    position: relative;
     width: calc(100% - 10px);
+    min-height: calc(100vh - 61px);
     transition: all .8s ease;
-    top: 36px;
+    // top: 42px;
 }
 
 .slide-left-enter,
