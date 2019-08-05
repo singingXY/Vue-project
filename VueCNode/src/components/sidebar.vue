@@ -69,7 +69,7 @@ export default {
                     //console.log(response);
                     if(response.success){
                         this.$store.dispatch('isLogin', true);
-                        localStorage.setItem("isLogin", "isLogin");
+                        localStorage.setItem("isLogin", this.accessToken);
                         localStorage.setItem("userInfo", JSON.stringify(response));
                         this.user = response;
                     }

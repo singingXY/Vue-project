@@ -16,8 +16,8 @@ Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().repl
 
 router.beforeEach((to, from, next) => {
   //获取用户登录成功后储存的登录标志
-  //如果登录标志存在且为isLogin，即用户已登录
-  if(localStorage.getItem("isLogin") === "isLogin"){
+  //如果登录标志存在，即用户已登录
+  if(localStorage.getItem("isLogin")){
     //设置vuex登录状态为已登录
     store.state.isLogin = true
   }
