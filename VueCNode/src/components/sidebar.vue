@@ -183,7 +183,7 @@ export default {
             .myMsg{
                 position: absolute;
                 top: 11px;
-                left: -10px;
+                left: -2px;
                 display: block;
                 padding: 0 5px;
                 height: 18px;
