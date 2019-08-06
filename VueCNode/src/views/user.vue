@@ -119,16 +119,7 @@ export default {
         }
     }
     .user-list{
-        overflow: hidden;
-        margin: 10px 0;
-        background: #fff;
-        border-radius: 5px;
-        .user-list-title{
-            padding: 10px;
-            background-color: #f6f6f6;
-            border-bottom: 1px solid #f0f0f0;
-            text-align: center;
-        }
+        
         li{
             display: flex;
             justify-content: space-between;

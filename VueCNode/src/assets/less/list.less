@@ -13,6 +13,17 @@ body{
     margin:0 5px 10px;
     padding-top: 41px;
 }
+
+
+.Router {
+    position: relative;
+    width: calc(100% - 10px);
+    min-height: calc(100vh - 61px);
+    transition: all .8s ease;
+    // top: 42px;
+}
+
+
 .head{
     position: fixed;
     top: 0;
@@ -37,6 +48,8 @@ body{
         width: 20px;
     }
 }
+
+//首页悬浮tab切换
 .list-type{
     position: fixed;
     //top: 41px;
@@ -80,6 +93,7 @@ body{
         transform: translateX(0px);
     }
 }
+//首页列表
 .list{
     overflow: hidden;
     margin-top: 41px;
@@ -148,6 +162,7 @@ body{
         color: #777;
     }
 }
+//首页分页
 .load-more{
     margin: 20px 0;
     text-align: center;
@@ -161,6 +176,7 @@ body{
         color: @mainColor;
     }
 }
+//回到顶部
 .backtotop{
     position: fixed;
     right: 0;
@@ -180,7 +196,7 @@ body{
     }
 }
 
-
+//加载过渡动画
 .slide-fade-enter-active {
     transition: all .5s ease;
 }
@@ -194,14 +210,7 @@ body{
 
 
 
-.Router {
-    position: relative;
-    width: calc(100% - 10px);
-    min-height: calc(100vh - 61px);
-    transition: all .8s ease;
-    // top: 42px;
-}
-
+//切页过渡动画
 .slide-left-enter,
 .slide-right-leave-active {
     opacity: 0;
@@ -216,3 +225,16 @@ body{
    transform: translate(-100% 0);
 }
 
+// 收藏、消息、个人页列表
+.user-list{
+    overflow: hidden;
+    margin: 10px 0;
+    background: #fff;
+    border-radius: 5px;
+}
+.user-list-title{
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
