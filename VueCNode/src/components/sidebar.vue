@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <ul>
-                    <li v-show="isLogin">我的消息</li>
-                    <li v-show="isLogin">
+                    <li v-show="isLogin">我的消息 <span class="myMsg" v-if="myMsg != 0">{{myMsg}}</span></li>
+                    <li v-if="isLogin && user.loginname">
                         <router-link :to="{ name: 'collect', params:{ loginname: user.loginname }}">我的收藏</router-link>
                     </li>
                     <li v-show="isLogin" @click="logout">退出登录</li>
@@ -39,7 +39,8 @@ export default {
     data() {
         return {
             accessToken: '1232c026-de1f-4e3a-8177-1f2c9ad4bb0f',
-            user:[]
+            user: [],
+            myMsg: 0
         }
     },
     computed:{
@@ -54,6 +55,14 @@ export default {
         //如果已登录则显示用户信息
         if(this.isLogin){
             this.user = JSON.parse(localStorage.getItem("userInfo"));
+            this.$fetch(common.api + '/message/count',{
+                        accesstoken: this.accessToken
+                })
+                .then((myMsg) => {
+                    if(myMsg.success){
+                        this.myMsg = myMsg.data;
+                    }
+                })
         }
     },
     methods: {
@@ -153,6 +162,7 @@ export default {
     ul{
         padding-top: 20px;
         li{
+            position: relative;
             width: 78%;
             height: 40px;
             margin: 0 auto 9px;
@@ -165,6 +175,20 @@ export default {
             }
             a{
                 color: #eee;
+            }
+            .myMsg{
+                position: absolute;
+                top: 11px;
+                left: -10px;
+                display: block;
+                padding: 0 5px;
+                height: 18px;
+                min-width: 18px;
+                line-height: 18px;
+                font-size: 12px;
+                color: #fff;
+                background: #f30000;
+                border-radius: 20px;
             }
         }
     }
