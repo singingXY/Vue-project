@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 const Article = () => import('./views/article.vue')
 const User = () => import('./views/user.vue')
 const Collect = () => import('./views/collect.vue')
+const Message = () => import('./views/message.vue')
 import Index from './views/list.vue';
 
 //安装插件
@@ -24,6 +25,10 @@ const routes = [{
     path: '/user/:loginname/collections',
     name: 'collect',
     component: Collect
+  },{
+    path: '/message',
+    name: 'message',
+    component: Message
   },{
     path: '*',
     component:Index

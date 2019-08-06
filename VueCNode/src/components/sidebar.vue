@@ -20,7 +20,11 @@
                     </div>
                 </div>
                 <ul>
-                    <li v-show="isLogin">我的消息 <span class="myMsg" v-if="myMsg != 0">{{myMsg}}</span></li>
+                    <li v-show="isLogin">
+                        <router-link :to="'/message'">
+                        我的消息 <span class="myMsg" v-if="myMsg != 0">{{myMsg}}</span>
+                        </router-link>
+                    </li>
                     <li v-if="isLogin && user.loginname">
                         <router-link :to="{ name: 'collect', params:{ loginname: user.loginname }}">我的收藏</router-link>
                     </li>
