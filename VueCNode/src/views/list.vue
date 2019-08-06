@@ -16,6 +16,7 @@
                 </router-link>
                 <p>
                     <span class="type" :class="{'typegood': list.good}" v-if="list.tab">{{list.tab | getType}}</span>
+                    <span class="type" :class="{'typegood': list.good}" v-else>暂无</span>
                     <span class="type typetop" v-if="list.top">置顶</span>
                     </p>
                 <p class="title">

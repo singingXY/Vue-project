@@ -23,7 +23,8 @@
                     作者 <router-link :to="{ name:'user', params:{ loginname:infos.author.loginname}}">{{infos.author.loginname}}</router-link>
                 </span>
                 <span>{{infos.visit_count}}次浏览</span>
-                <span>来自 {{types[infos.tab]}}</span>
+                <span v-if="infos.tab">来自 {{types[infos.tab]}}</span>
+                <span v-else>来自 暂无</span>
             </p>
         </div>
         <div class="article-content" v-html="infos.content"></div>
@@ -68,7 +69,7 @@ export default {
         return {
             isLoading: true,
             id: this.$route.params.id,
-            types: { share: '分享', ask: '问答', job: '招聘'},
+            types: { share: '分享', ask: '问答', job: '招聘', dev: '客户端测试'},
             infos: [],
             replies: [],
             is_collect: false,
@@ -96,6 +97,7 @@ export default {
                     this.infos = response.data;
                     this.replies = this.infos.replies;
                     this.is_collect  = this.infos.is_collect;
+                    console.log(this.infos);
                 }
             })
         },
