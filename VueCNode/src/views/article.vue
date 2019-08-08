@@ -32,7 +32,7 @@
             <div class="replies-title">
                 回复 [{{infos.reply_count}}]
             </div>
-            <div class="reply" v-for="(replies, index) in replies" :key="replies.id">
+            <div class="reply" v-for="(replies, index) in replies" :key="replies.id" :id="'id'+replies.id">
                 <div class="reply-item">
                     <router-link :to="{ name:'user', params:{ loginname:replies.author.loginname}}">
                         <img class="reply-avatar" :src="replies.author.avatar_url" :alt="replies.author.loginname">
@@ -83,7 +83,15 @@ export default {
     },
     mounted() {
         this.getData();
-        document.documentElement.scrollTop = 1;
+        this.$nextTick(function () {
+            this.replyId = "#id" + this.$route.query.replyId;
+            //this.replyId = "id" + this.$route.query.replyId;
+            if(this.replyId){
+                this.goAnchor(this.replyId);
+            }else{
+                document.documentElement.scrollTop = 1;
+            }
+        })
     },
     methods: {
         getData() {
@@ -97,7 +105,7 @@ export default {
                     this.infos = response.data;
                     this.replies = this.infos.replies;
                     this.is_collect  = this.infos.is_collect;
-                    console.log(this.infos);
+                    //console.log(this.infos);
                 }
             })
         },
@@ -126,6 +134,19 @@ export default {
                     alert("取消收藏失败");
                 }
             })
+        },
+        goAnchor(selector) {
+            console.log(this.$el);
+            const anchorEle = this.$el.querySelector(selector);
+            //const anchorEle = document.getElementById(selector);
+            console.log(anchorEle);
+            if (!!anchorEle ) {
+                console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
+                anchorEle.scrollIntoView(true);
+                document.body.scrollTop = anchorEle.offsetTop;
+                document.documentElement.scrollTop = anchorEle.offsetTop;
+                console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
+            }
         }
     }
 }
