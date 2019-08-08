@@ -40,7 +40,7 @@ export default {
             isLoading: true,
             loginname: this.$route.params.loginname,
             collect: [],
-            types: { share: '分享', ask: '问答', job: '招聘'}
+            types: { share: '分享', ask: '问答', job: '招聘', dev: '客户端测试'}
         }
     },
     created() {
