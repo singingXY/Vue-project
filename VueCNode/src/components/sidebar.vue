@@ -43,8 +43,7 @@ export default {
     data() {
         return {
             accessToken: '1232c026-de1f-4e3a-8177-1f2c9ad4bb0f',
-            user: [],
-            myMsg: 0
+            user: []
         }
     },
     computed:{
@@ -53,7 +52,11 @@ export default {
         },
         isLogin(){
             return this.$store.state.isLogin;
+        },
+        myMsg(){
+            return this.$store.state.myMsg;
         }
+
     },
     mounted () {
         //如果已登录则显示用户信息
@@ -64,7 +67,9 @@ export default {
                 })
                 .then((myMsg) => {
                     if(myMsg.success){
-                        this.myMsg = myMsg.data;
+                        //this.myMsg = myMsg.data;
+                        this.$store.commit('myMsg', myMsg.data);
+                        console.log(myMsg);
                     }
                 })
         }

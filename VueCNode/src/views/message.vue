@@ -62,8 +62,15 @@ export default {
              this.message = result.data;
              this.oldMsg = this.message.has_read_messages;
              this.msg = this.message.hasnot_read_messages;
-             //console.log( this.oldMsg);
         });
+        if(this.msg){
+            this.$post(common.api + '/message/mark_all', {
+                accesstoken: this.lSLogin
+            })
+            .then((result) => {
+                this.$store.commit('myMsg', 0);
+            });
+        }
     }
 }
 </script>

@@ -5,7 +5,8 @@ Vue.use(vuex);
 export default new vuex.Store({
     state:{
         isShowSidebar: false,
-        isLogin: false
+        isLogin: false,
+        myMsg: 0
     },
     getters: {
       //获取登录状态
@@ -17,6 +18,9 @@ export default new vuex.Store({
         },
         Login(state,value){
             state.isLogin = value ;
+        },
+        myMsg(state,value){
+            state.myMsg = value ;
         }
     },
     // 应用mutations
