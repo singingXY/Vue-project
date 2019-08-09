@@ -69,7 +69,6 @@ export default {
                     if(myMsg.success){
                         //this.myMsg = myMsg.data;
                         this.$store.commit('myMsg', myMsg.data);
-                        console.log(myMsg);
                     }
                 })
         }

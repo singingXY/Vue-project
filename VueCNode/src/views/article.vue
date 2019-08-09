@@ -136,16 +136,16 @@ export default {
             })
         },
         goAnchor(selector) {
-            console.log(this.$el);
+            //console.log(this.$el);
             const anchorEle = this.$el.querySelector(selector);
             //const anchorEle = document.getElementById(selector);
-            console.log(anchorEle);
+           // console.log(anchorEle);
             if (!!anchorEle ) {
-                console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
+                //console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
                 anchorEle.scrollIntoView(true);
                 document.body.scrollTop = anchorEle.offsetTop;
                 document.documentElement.scrollTop = anchorEle.offsetTop;
-                console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
+               //console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
             }
         }
     }
