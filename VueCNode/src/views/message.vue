@@ -12,7 +12,7 @@
                     </router-link>
                     <span v-if="msg.type == 'at'">&nbsp;中@了你</span>
                     <span class="date">{{changeTime(msg.create_at)}}</span>
-                    <div v-html="msg.reply.content" class="msg-con"></div>
+                    <div v-html="msg.reply.content" class="msg-con markdown-body"></div>
                 </li>
                 <li v-if="msg == false">无消息</li>
             </ul>

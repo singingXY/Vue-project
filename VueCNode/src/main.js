@@ -9,6 +9,7 @@ import { post } from './common.js'
 //vuex
 import store from './store'
 
+import 'github-markdown-css';
 
 Vue.prototype.$fetch = fetch;
 Vue.prototype.$post = post;
