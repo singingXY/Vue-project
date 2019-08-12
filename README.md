@@ -2,13 +2,15 @@ https://singingxy.github.io/VueCNode/
 
 # VueCNode
 
-*技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
+* 技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
 
-*感谢cnodejs社区提供的API。
+* 感谢cnodejs社区提供的API。
 
 ## 预览地址
 
->[在线访问](https://singingxy.github.io/VueCNode/)
+[在线访问](https://singingxy.github.io/VueCNode/)
+
+![image](https://github.com/singingXY/VueCNode/raw/master/static/QR.png)
 
 ## 源码地址
 
@@ -30,7 +32,6 @@ VueCNode
 │   │    ├─ less                    // less文件
 │   │    │   ├─ list.less           // 全局通用less文件
 │   │    │   └─reset.less           // 全局通用reset文件
-│   │    └─ logo.png                // 头部logo图
 │   ├─ common.js                    // 全局js文件
 │   ├─ components                   // 公共组件
 │   │    ├─ header.vue              // 页面头部公共组件
