@@ -8,7 +8,7 @@
             <h4>关于项目</h4>
             <p>该项目是基于Cnode社区提供的的api，采用vue.js重写的webapp。</p>
             <h4>源码地址</h4>
-            <p><a href="https://github.com/singingXY/Vue-project/tree/master/VueCNode">https://github.com/singingXY/Vue-project/tree/master/VueCNode</a></p>
+            <p><a href="https://github.com/singingXY/VueCNode">https://github.com/singingXY/VueCNode</a></p>
             <p></p>
         </div>
     </div>

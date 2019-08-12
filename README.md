@@ -1,10 +1,18 @@
-https://singingxy.github.io/Vue-project/VueCNode/dist/index.html
+https://singingxy.github.io/VueCNode/
 
 # VueCNode
 
-> 技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
+*技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
 
-感谢cnodejs社区提供的API。
+*感谢cnodejs社区提供的API。
+
+## 预览地址
+
+>[在线访问](https://singingxy.github.io/VueCNode/)
+
+## 源码地址
+
+>https://github.com/singingXY/VueCNode
 
 ## 项目目录说明
 ```
@@ -48,7 +56,7 @@ VueCNode
 
 ``` bash
 # clone repo
-git clone git@github.com:singingXY/Vue-project.git
+git clone git@github.com:singingXY/VueCNode.git
 
 # install dependencies
 npm install
