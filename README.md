@@ -1,4 +1,3 @@
-https://singingxy.github.io/VueCNode/
 
 # VueCNode
 
