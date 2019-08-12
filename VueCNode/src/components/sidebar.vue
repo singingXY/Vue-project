@@ -29,7 +29,7 @@
                         <router-link :to="{ name: 'collect', params:{ loginname: user.loginname }}">我的收藏</router-link>
                     </li>
                     <li v-show="isLogin" @click="logout">退出登录</li>
-                    <li>关 于</li>
+                    <li><router-link :to="'/about'">关 于</router-link></li>
                 </ul>
             </div>
         </transition>

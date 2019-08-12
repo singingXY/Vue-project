@@ -1,8 +1,30 @@
 https://singingxy.github.io/Vue-project/VueCNode/dist/index.html
 
-# menu
+# VueCNode
 
-> A Vue.js project
+> 技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
+
+感谢cnodejs社区提供的API。
+
+## 项目目录说明
+```
+VueCNode
+├─ .babelrc
+├─ .editorconfig
+├─ .gitignore
+├─ .postcssrc.js
+├─ README.md
+├─ build
+├─ config
+├─ dist
+├─ index.html
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+└─ static
+
+```
 
 ## Build Setup
 

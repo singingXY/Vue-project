@@ -4,6 +4,7 @@ const Article = () => import('./views/article.vue')
 const User = () => import('./views/user.vue')
 const Collect = () => import('./views/collect.vue')
 const Message = () => import('./views/message.vue')
+const About = () => import('./views/about.vue')
 import Index from './views/list.vue';
 
 //安装插件
@@ -29,6 +30,10 @@ const routes = [{
     path: '/message',
     name: 'message',
     component: Message
+  },{
+    path: '/about',
+    name: 'about',
+    component: About
   },{
     path: '*',
     component:Index
