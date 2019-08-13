@@ -42,7 +42,7 @@
 export default {
     data() {
         return {
-            accessToken: '1232c026-de1f-4e3a-8177-1f2c9ad4bb0f',
+            accessToken: '',
             user: []
         }
     },
@@ -93,6 +93,7 @@ export default {
                 })
                 .catch((err) => {
                     console.log('验证失败',err);
+                    alert('验证失败');
                 })
             }else{
                 alert("请输入accessToken，在设置页面可以看到自己的 accessToken。")
