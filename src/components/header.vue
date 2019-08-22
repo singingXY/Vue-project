@@ -19,7 +19,7 @@
     </div>
     <div class="logo">
       <router-link to="/">
-        <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg">
+        <img src="../../static/cnodejs_light.svg">
       </router-link>
     </div>
     <div class="more"
