@@ -1,10 +1,10 @@
 <template>
   <div class="head">
 
-    <div class="back"
-         v-show="showBack"
-         @click.stop.prevent="$router.go(-1)">
-      <svg t="1564367329808"
+    <div class="back">
+      <svg v-show="showBack"
+           @click.stop.prevent="$router.go(-1)"
+           t="1564367329808"
            class="icon"
            viewBox="0 0 1024 1024"
            version="1.1"
