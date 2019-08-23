@@ -69,9 +69,6 @@ export default {
       replies: []
     }
   },
-  created () {
-    this.$store.commit('showSidebar', false)
-  },
   mounted () {
     this.getData()
   },
@@ -101,7 +98,6 @@ export default {
 <style lang="less" scoped>
 .user {
   display: flex;
-  margin-top: 10px;
   padding: 20px;
   background: #fff;
   border-radius: 5px;

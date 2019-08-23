@@ -83,6 +83,7 @@ export default {
   mounted () {
     // 如果已登录则显示用户信息
     if (this.isLogin) {
+      this.accessToken = localStorage.getItem('isLogin')
       this.user = JSON.parse(localStorage.getItem('userInfo'))
       this.$fetch(common.api + '/message/count', {
         accesstoken: this.accessToken
@@ -235,5 +236,16 @@ export default {
 .slidebar-fade-leave-active {
   opacity: 0;
   transform: translateX(100px);
+}
+
+@media screen and (min-width: 900px) {
+  .slidebar {
+    position: inherit;
+    .slide-menu {
+      position: inherit;
+      right: 5px;
+      top: 41px;
+    }
+  }
 }
 </style>

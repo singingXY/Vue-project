@@ -50,9 +50,6 @@ export default {
       message: []
     }
   },
-  created () {
-    this.$store.commit('showSidebar', false)
-  },
   mounted () {
     this.$fetch(common.api + '/messages', {
       accesstoken: this.lSLogin

@@ -19,14 +19,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  created () {
-    this.$store.commit('showSidebar', false)
-  }
-}
-</script>
-
 <style scoped>
 .markdown-body {
   padding: 10px 10px 30px;

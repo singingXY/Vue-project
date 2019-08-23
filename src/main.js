@@ -38,7 +38,12 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
-
+router.afterEach((to, from, next) => {
+  store.commit('showSidebar', false)
+  if (document.documentElement.clientWidth >= 900) {
+    store.commit('showSidebar', true)
+  }
+})
 // 创建和挂载根实例。
 // 通过 router 配置参数注入路由，从而让整个应用都有路由功能
 /* eslint-disable no-new */

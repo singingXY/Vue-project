@@ -51,9 +51,6 @@ export default {
       types: { share: '分享', ask: '问答', job: '招聘', dev: '客户端测试' }
     }
   },
-  created () {
-    this.$store.commit('showSidebar', false)
-  },
   mounted () {
     this.getData()
   },
