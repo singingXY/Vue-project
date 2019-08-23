@@ -37,7 +37,7 @@
         </div>
         <ul>
           <li v-show="isLogin">
-            <router-link :to="'/message'">
+            <router-link to="/message">
               我的消息 <span class="myMsg"
                     v-if="myMsg != 0">{{myMsg}}</span>
             </router-link>
@@ -48,7 +48,7 @@
           <li v-show="isLogin"
               @click="logout">退出登录</li>
           <li>
-            <router-link :to="'/about'">关 于</router-link>
+            <router-link to="/about">关 于</router-link>
           </li>
         </ul>
       </div>
