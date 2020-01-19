@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       // 定义滚动条默认位置
-      scrollTop: null,
+      scrollTop: 0,
       // 定义按钮默认状态
       isScrollTop: false,
       // 默认动态路由变化为slide-right
@@ -59,24 +59,7 @@ export default {
   },
   mounted () {
     // 监听滚动事件
-    window.addEventListener(
-      'scroll',
-      () => {
-        this.scrollTop =
-          document.documentElement.scrollTop ||
-          window.pageYOffset ||
-          document.body.scrollTop ||
-          document.querySelector(this.el).scrollTop
-
-        // 控制滚动按钮的隐藏或显示
-        if (this.scrollTop > 200) {
-          this.isScrollTop = true
-        } else {
-          this.isScrollTop = false
-        }
-      },
-      true
-    )
+    window.addEventListener('scroll', this.showScrollTop)
     // 载入后移除全屏加载
     try {
       document.body.removeChild(document.getElementById('Loading'))
@@ -86,30 +69,26 @@ export default {
     } catch (e) { }
   },
   methods: {
+    // 点击图片回到顶部方法，加计时器是为了过渡顺滑
     scrollToTop () {
-      let $this = this
-
-      // 返回顶部动画特效
-      setTimeout(function animation () {
-        if ($this.scrollTop > 1) {
-          setTimeout(() => {
-            // 步进速度
-            $this.scrollTop = $this.scrollTop - 30
-
-            // 返回顶部
-            if (document.documentElement.scrollTop > 1) {
-              document.documentElement.scrollTop = $this.scrollTop - 30
-            } else if (window.pageYOffset > 1) {
-              window.pageYOffset = $this.scrollTop - 30
-            } else if (document.body.scrollTop > 1) {
-              document.body.scrollTop = $this.scrollTop - 30
-            } else if (document.querySelector($this.el).scrollTop) {
-              document.querySelector($this.el).scrollTop = $this.scrollTop - 30
-            }
-            animation()
-          }, 1)
+      const that = this
+      let timer = setInterval(() => {
+        let ispeed = Math.floor(-that.scrollTop / 5)
+        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+        if (that.scrollTop === 0) {
+          clearInterval(timer)
         }
-      }, 1)
+      }, 16)
+    },
+    showScrollTop () {
+      const that = this
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      that.scrollTop = scrollTop
+      if (that.scrollTop > 0) {
+        that.isScrollTop = true
+      } else {
+        that.isScrollTop = false
+      }
     }
   },
   watch: {
