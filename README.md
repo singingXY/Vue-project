@@ -7,9 +7,9 @@
 
 ## 预览地址
 
-[在线访问](https://singingxy.github.io/VueCNode/)
+[在线访问](http://singingxy.coding.me/VueCNode/)
 
-[![image](https://github.com/singingXY/VueCNode/raw/master/static/QR.png)](https://singingxy.github.io/VueCNode/)
+[![image](https://github.com/singingXY/VueCNode/raw/master/static/QR.png)](http://singingxy.coding.me/VueCNode/)
 
 ## 源码地址
 
