@@ -125,15 +125,18 @@ export default {
   },
   mounted () {
     this.getData()
-    this.$nextTick(function () {
-      this.replyId = '#id' + this.$route.query.replyId
-      // this.replyId = "id" + this.$route.query.replyId;
-      if (this.replyId) {
-        this.goAnchor(this.replyId)
-      } else {
-        document.documentElement.scrollTop = 1
-      }
-    })
+    // 消息列表点进来时根据replyId滚动到对应评论
+    let replyId = this.$route.query.replyId
+    if (replyId) {
+      // querySelector不能以数字开头，故加"id",消除报错
+      this.$nextTick(function () {
+        setTimeout(() => {
+          this.goAnchor('#id' + replyId)
+        }, 200)
+      })
+    } else {
+      document.documentElement.scrollTop = 1
+    }
   },
   methods: {
     getData () {
@@ -175,10 +178,13 @@ export default {
       })
     },
     goAnchor (selector) {
-      // console.log(this.$el);
-      const anchorEle = this.$el.querySelector(selector)
-      // const anchorEle = document.getElementById(selector);
-      // console.log(anchorEle);
+      // 滚动到对应锚点
+
+      console.log(selector)
+      // const anchorEle = this.$el.querySelector(selector)
+      const anchorEle = document.querySelector(selector)
+      // const anchorEle = document.getElementById(selector)
+      console.log(anchorEle)
       if (anchorEle) {
         // console.log(document.body.scrollTop + '  ' + anchorEle.offsetTop);
         anchorEle.scrollIntoView(true)

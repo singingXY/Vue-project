@@ -145,7 +145,7 @@ export default {
   position: fixed;
   top: 36px;
   right: 0;
-  width: 170px;
+  width: 60%;
   height: 100%;
   background: #666;
   box-shadow: -2px 0 5px 0px #2b2b2b61;
@@ -182,7 +182,7 @@ export default {
       border-bottom: 1px solid #bbb;
     }
     .login {
-      margin: 10px auto 0;
+      margin: 20px auto 0;
       width: 80px;
       height: 32px;
       line-height: 32px;
@@ -245,6 +245,7 @@ export default {
       position: inherit;
       right: 5px;
       top: 41px;
+      width: 200px;
     }
   }
 }

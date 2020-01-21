@@ -107,4 +107,5 @@ export default {
 .loading {
   margin-top: 20px;
 }
+input{-webkit-appearance: none;}
 </style>

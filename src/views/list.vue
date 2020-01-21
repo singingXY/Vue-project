@@ -167,7 +167,7 @@ export default {
 
       // 获取数据
       this.getData()
-      document.documentElement.scrollTop = 1
+      document.documentElement.scrollTop = document.body.scrollTop = 1
     }
   },
   filters: {
