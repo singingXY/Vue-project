@@ -1,21 +1,21 @@
-
 # VueCNode
 
-* 技术栈: 基于vue.js + vue-cli + vue-router + vuex + axios + less 重写vue版cnode社区，使用webpack打包
+- 技术栈: 基于 vue.js + vue-cli + vue-router + vuex + axios + less 重写 vue 版 cnode 社区，使用 webpack 打包
 
-* 感谢cnodejs社区提供的API。
+- 感谢 cnodejs 社区提供的 API。
 
 ## 预览地址
 
-[在线访问](http://singingxy.coding.me/VueCNode/)
+[在线访问](http://singingxy.gitee.io/vuecnode)
 
-[![image](https://github.com/singingXY/VueCNode/raw/master/static/QR.png)](http://singingxy.coding.me/VueCNode/)
+[![image](https://raw.githubusercontent.com/singingXY/mypic/master/cnode/qr.png)](http://singingxy.gitee.io/vuecnode/)
 
 ## 源码地址
 
->https://github.com/singingXY/VueCNode
+> https://github.com/singingXY/VueCNode
 
 ## 项目目录说明
+
 ```
 VueCNode
 ├─ .babelrc                         // ES6语法编译配置
@@ -54,7 +54,7 @@ VueCNode
 
 ## Build Setup
 
-``` bash
+```bash
 # clone repo
 git clone git@github.com:singingXY/VueCNode.git
 
