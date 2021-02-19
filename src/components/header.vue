@@ -19,7 +19,7 @@
     </div>
     <div class="logo">
       <router-link to="/">
-        <img src="../../static/cnodejs_light.svg">
+        <img src="../assets/cnodejs_light.svg">
       </router-link>
     </div>
     <div class="more"
@@ -42,28 +42,27 @@
   </div>
 </template>
 <script>
-import Sidebar from '@/components/sidebar.vue'
+import Sidebar from "@/components/sidebar.vue";
 export default {
   components: {
-    Sidebar
+    Sidebar,
   },
   computed: {
-    isShowSidebar () {
-      return this.$store.state.isShowSidebar
+    isShowSidebar() {
+      return this.$store.state.isShowSidebar;
     },
-    showBack () {
-      if (this.$route.name !== '' && this.$route.name !== 'index') {
-        return this.$route.name
+    showBack() {
+      if (this.$route.name !== "" && this.$route.name !== "index") {
+        return this.$route.name;
       }
-    }
+    },
   },
   methods: {
-    showSidebar () {
-      this.$store.commit('showSidebar', true)
-    }
-  }
-}
-
+    showSidebar() {
+      this.$store.commit("showSidebar", true);
+    },
+  },
+};
 </script>
 <style>
 </style>

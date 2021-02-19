@@ -18,19 +18,18 @@
 
 ```
 VueCNode
-├─ .babelrc                         // ES6语法编译配置
 ├─ .gitignore                       // git 忽略文件
 ├─ package.json                     // 项目配置文件
+├─ package-lock.json                // 项目配置文件
 ├─ README.md                        // 项目说明
-├─ index.html                       // 项目首页html
+├─ babel.config.js                  // babel配置
 ├─ dist                             // 输出目录
-├─ node_modules                     // Node.js 模块
 ├─ src                              // 源码目录
 │   ├─ App.vue                      // 页面入口文件
 │   ├─ assets                       // 资源文件夹
-│   │    ├─ less                    // less文件
-│   │    │   ├─ list.less           // 全局通用less文件
-│   │    │   └─reset.less           // 全局通用reset文件
+│   │    └─ less                    // less文件
+│   │        ├─ list.less           // 全局通用less文件
+│   │        └─reset.less           // 全局通用reset文件
 │   ├─ common.js                    // 全局js文件
 │   ├─ components                   // 公共组件
 │   │    ├─ header.vue              // 页面头部公共组件
@@ -47,8 +46,7 @@ VueCNode
 │       ├─ list.vue                 // 首页列表
 │       ├─ message.vue              // 我的消息
 │       └─ user.vue                 // 查看用户资料
-├─ build                            // 构建服务和webpack配置
-└─ config                           // 项目开发环境配置
+└─ public                           // 静态资源
 
 ```
 
