@@ -15,7 +15,7 @@ Vue.config.productionTip = false //  关闭生产模式下给出的提示
 
 Vue.prototype.$fetch = fetch
 Vue.prototype.$post = post
-Vue.prototype.changeTime = time =>
+Vue.prototype.changeTime = (time) =>
   moment(time)
     .startOf('minute')
     .fromNow()
@@ -39,6 +39,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+/* eslint-disable no-unused-vars */
 router.afterEach((to, from, next) => {
   store.commit('showSidebar', false)
   if (document.documentElement.clientWidth >= 900) {
